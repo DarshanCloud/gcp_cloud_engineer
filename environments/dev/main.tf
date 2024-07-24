@@ -8,8 +8,17 @@
 #   billing_account = var.billing_account
 # }
 
-# module "dev-gcs" {
-#   source              = "../../modules/gcs"
-#   storage_bucket_name = var.storage_bucket_name
-#   project_id          = var.project_id
-# }
+module "dev-gcs" {
+  source              = "../../modules/gcs"
+  storage_bucket_name = var.storage_bucket_name
+  project_id          = var.project_id
+  bucket_another_gcs  = var.bucket_another_gcs
+}
+
+module "test-gcs" {
+  source = "../../modules/gcs"
+  bucket_another_gcs = var.bucket_another_gcs
+  project_id = var.project_id
+  storage_bucket_name = var.storage_bucket_name
+}
+
