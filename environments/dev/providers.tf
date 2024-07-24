@@ -6,8 +6,13 @@ terraform {
       version = "~> 4.60.0"
     }
   }
+  backend "gcs" {
+    bucket = "cloudengineertestdev"
+    prefix = "terraform/state"
+  }
 }
 
 provider "google" {
   project = var.project_id
 }
+
