@@ -63,7 +63,7 @@ steps:
 
       cd ${_TERRA_FORM_ENV_PATH}/${_INFRA_ENV}
       pwd && ls -la
-      terraform plan --var-file=${_INFRA_ENV}.tfvars -input=false -out=output.tfplan
+      terraform plan --var-file=${_INFRA_ENV}.tfvars -out=output.tfplan
 
 - id: Terraform Apply
   name: ${_TERRAFORM_VERSION}
