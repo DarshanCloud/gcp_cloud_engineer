@@ -10,7 +10,7 @@
 
 resource "google_storage_bucket" "tf-terraformstates" {
   name                        = var.another_bucket_name
-  location                    = "EU"
+  location                    = "US"
   storage_class               = "REGIONAL"
   uniform_bucket_level_access = true
   project                     = var.project_id
@@ -21,4 +21,3 @@ module "dev-gcs" {
   storage_bucket_name = var.storage_bucket_name
   project_id          = var.project_id
 }
-
