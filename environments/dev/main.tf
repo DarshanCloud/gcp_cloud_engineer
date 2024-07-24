@@ -8,6 +8,14 @@
 #   billing_account = var.billing_account
 # }
 
+resource "google_storage_bucket" "tf-terraformstates" {
+  name                        = var.another_bucket_name
+  location                    = "EU"
+  storage_class               = "REGIONAL"
+  uniform_bucket_level_access = true
+  project                     = var.project_id
+}
+
 module "dev-gcs" {
   source              = "../../modules/gcs"
   storage_bucket_name = var.storage_bucket_name
