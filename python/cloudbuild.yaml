@@ -13,7 +13,7 @@ steps:
       args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
 
     - id: Check Path
-      name: ${_PROJECT_ID}
+      name: 'python'
       entrypoint: sh
       args: ['pwd']
 
