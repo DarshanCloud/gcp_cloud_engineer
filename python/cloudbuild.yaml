@@ -15,7 +15,10 @@ steps:
     - id: Check Path
       name: 'python'
       entrypoint: sh
-      args: ['pwd']
+      args:
+        - -c
+        - |
+          pwd && ls -la
 
     # Docker Build
     # - name: 'gcr.io/cloud-builders/docker'
