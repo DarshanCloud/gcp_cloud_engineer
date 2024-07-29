@@ -1,5 +1,5 @@
 substitutions:
-    _ARTIFACT_REGISTRY_REPO: 'testandbuild'
+    _ARTIFACT_REGISTRY_REPO: 'myimage'
 
 steps:
     # Install dependencies
