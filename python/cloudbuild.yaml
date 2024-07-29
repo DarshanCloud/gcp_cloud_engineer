@@ -12,13 +12,13 @@ steps:
       entrypoint: python
       args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
 
-- id: Check Path
-  name: Check Path
-  entrypoint: sh
-  args:
-    - -c
-    - |
-      pwd && ls -la
+
+    - name: Check Path
+      entrypoint: sh
+      args:
+        - -c
+        - |
+        pwd && ls -la
 
     # Docker Build
     - name: 'gcr.io/cloud-builders/docker'
