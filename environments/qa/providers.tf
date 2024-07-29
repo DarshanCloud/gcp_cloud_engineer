@@ -6,10 +6,10 @@ terraform {
       version = "~> 4.60.0"
     }
   }
-  # backend "gcs" {
-  #   bucket = "cloudengineertestqa"
-  #   prefix = "terraform/state"
-  # }
+  backend "gcs" {
+    bucket = "cloudengineertestqa"
+    prefix = "terraform/state"
+  }
 }
 
 provider "google" {
