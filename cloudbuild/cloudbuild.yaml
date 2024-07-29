@@ -92,7 +92,7 @@ steps:
       if [[ "${_DESTROY}" == "yes" ]]
       then
         terraform plan -destroy --var-file=${_INFRA_ENV}.tfvars -out=output.tfplan
-        terraform destroy -auto-approve output.tfplan 
+        terraform destroy 
       fi 
 
 #destroy one specific resource
