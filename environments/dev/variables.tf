@@ -6,7 +6,5 @@ variable "project_id" {}
 
 variable "storage_bucket_name" {}
 
-variable "another_bucket_name" {
-  
-}
+variable "another_bucket_name" {}
 

@@ -25,3 +25,5 @@ variable "storage_bucket_name" {}
 # variable "initial_node_count" {
 #   type = number
 # }
+
+variable "another_bucket_name" {}

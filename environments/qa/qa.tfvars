@@ -21,3 +21,5 @@ storage_bucket_name = "cloudengineertestqa"
 # location = "us-central1"
 
 # initial_node_count = 2
+
+another_bucket_name = "anotherbucketnameqa"

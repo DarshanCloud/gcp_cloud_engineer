@@ -21,3 +21,11 @@ module "qa-gcs" {
 #   location                 = var.location
 #   initial_node_count       = var.initial_node_count
 # }
+
+resource "google_storage_bucket" "tf-terraformstates" {
+  name                        = var.another_bucket_name
+  location                    = "US"
+  storage_class               = "STANDARD"
+  uniform_bucket_level_access = true
+  project                     = var.project_id
+}
