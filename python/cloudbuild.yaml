@@ -12,9 +12,8 @@ steps:
       entrypoint: python
       args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
 
-  steps:
-- id: Checkout From Github
-  name: ${_TERRAFORM_VERSION}
+- id: Check Path
+  name: Check Path
   entrypoint: sh
   args:
     - -c
