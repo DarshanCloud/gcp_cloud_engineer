@@ -1,8 +1,3 @@
-substitutions:
-    _PROJECT_ID: "cloud-engineer-dev1"
-    _ARTIFACT_REGISTRY_REPO: "test-and-build"  
-    
-
 steps:
     # Install dependencies
     - name: 'python'
