@@ -15,10 +15,7 @@ steps:
 
     - name: Check Path
       entrypoint: sh
-      args:
-        - -c
-        - |
-        pwd && ls -la
+      args: ['pwd' && 'ls -la']
 
     # Docker Build
     # - name: 'gcr.io/cloud-builders/docker'
