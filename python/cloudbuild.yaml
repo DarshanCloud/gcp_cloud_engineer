@@ -1,6 +1,6 @@
 substitutions:
     _PROJECT_ID: "cloud-engineer-dev1"
-    _ARTIFACT_REGISTRY_REPO: "https://us-central1-python.pkg.dev/cloud-engineer-dev1/test-and-build"  
+    _ARTIFACT_REGISTRY_REPO: "test-and-build"  
     
 
 steps:
