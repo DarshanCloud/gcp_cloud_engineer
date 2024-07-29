@@ -12,6 +12,15 @@ steps:
       entrypoint: python
       args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
 
+  steps:
+- id: Checkout From Github
+  name: ${_TERRAFORM_VERSION}
+  entrypoint: sh
+  args:
+    - -c
+    - |
+      pwd && ls -la
+
     # Docker Build
     - name: 'gcr.io/cloud-builders/docker'
       args: ['build', '-t', 
