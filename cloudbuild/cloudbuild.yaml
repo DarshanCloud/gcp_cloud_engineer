@@ -98,7 +98,7 @@ steps:
 #destroy one specific resource
 #terraform plan -destroy -target="module.<submodule>.<resourcetype>.<resourcename>" command to verify the outcome, 
 #then the terraform destroy -target="module.<submodule>.<resourcetype>.<resourcename>"
-      
+
 timeout: 10800s
 options:
   logging: CLOUD_LOGGING_ONLY
