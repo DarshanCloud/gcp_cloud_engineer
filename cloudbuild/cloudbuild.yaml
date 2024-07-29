@@ -79,6 +79,7 @@ steps:
       then
         terraform apply -auto-approve output.tfplan 
       fi
+      
 - id: Terraform Destroy
   name: ${_TERRAFORM_VERSION}
   entrypoint: sh
@@ -91,7 +92,6 @@ steps:
       pwd && ls -la
       if [[ "${_DESTROY}" == "yes" ]]
       then
-        terraform plan -destroy -out=output.tfplan
         terraform destroy
       fi 
 
