@@ -5,3 +5,4 @@ project_id      = "cloud-engineer-dev1"
 storage_bucket_name = "cloudengineertestdev"
 
 another_bucket_name = "anotherbucketnamedev"
+
