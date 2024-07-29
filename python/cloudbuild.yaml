@@ -12,8 +12,8 @@ steps:
       entrypoint: python
       args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
 
-
-    - name: Check Path
+    - id: Check Path
+      name: ${_PROJECT_ID}
       entrypoint: sh
       args: ['pwd']
 
