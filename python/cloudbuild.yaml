@@ -17,6 +17,12 @@ steps:
         - -c
         - |
           pwd && ls -la
+
+    # Run unit tests
+    - name: python
+      entrypoint: python
+      args: ["-m", "pytest", "--junitxml=${SHORT_SHA}_test_log.xml"]
+      
     # Docker Build
     - name: 'gcr.io/cloud-builders/docker'
       args: ['build', '-t',
