@@ -25,8 +25,6 @@ steps:
     # Docker push to Google Artifact Registry
     - name: 'gcr.io/cloud-builders/docker'
       args: ['push',  'us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/pyimage:${SHORT_SHA}']
-    images:
-        - us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/pyimage:${SHORT_SHA}
 
 timeout: 10800s
 options:
