@@ -46,7 +46,7 @@ steps:
       name: gcr.io/google.com/cloudsdktool/cloud-sdk
       entrypoint: /bin/bash
       args:
-        - '-c'
+        - -c
         - |
           if [[ "${_DOCKER_CLEANUP}" == "yes" ]]
           then
