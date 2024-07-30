@@ -94,35 +94,10 @@ steps:
       then
         terraform destroy
       fi 
-    
+
 #destroy one specific resource
 #terraform plan -destroy -target="module.<submodule>.<resourcetype>.<resourcename>" command to verify the outcome, 
 #then the terraform destroy -target="module.<submodule>.<resourcetype>.<resourcename>"
-
-    # Install dependencies
-    - name: 'python'
-      entrypoint: 'python'
-      args: ['-m', 'pip', 'install', '--upgrade', 'pip']
-    - name: python
-      entrypoint: python
-      args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
-
-    - id: Check Path
-      name: 'python'
-      entrypoint: sh
-      args:
-        - -c
-        - |
-          pwd && ls -la
-
-    # Docker Build
-    - name: 'gcr.io/cloud-builders/docker'
-      args: ['build', '-t', '-f', 'python/',
-            'us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/pyimage:${SHORT_SHA}', '.']
-
-    # Docker push to Google Artifact Registry
-    - name: 'gcr.io/cloud-builders/docker'
-      args: ['push',  'us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/pyimage:${SHORT_SHA}']
 
 timeout: 10800s
 options:
