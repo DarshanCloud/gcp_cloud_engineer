@@ -1,6 +1,6 @@
 substitutions:
     _ARTIFACT_REGISTRY_REPO: 'testandbuild'
-    _CLEANUP: "no"
+    _DOCKER_CLEANUP: "no"
 
 steps:
     # Install dependencies
@@ -48,7 +48,7 @@ steps:
       args:
         - '-c'
         - |
-          if [[ "${__CLEANUP}" == "yes" ]]
+          if [[ "${_DOCKER_CLEANUP}" == "yes" ]]
           then
           gcloud artifacts docker images delete us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/pyimage:${SHORT_SHA}
           fi
