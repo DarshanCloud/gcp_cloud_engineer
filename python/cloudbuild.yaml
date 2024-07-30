@@ -3,7 +3,7 @@ substitutions:
 
 steps:
     # Install dependencies
-    - name: 'Python'
+    - name: 'python'
       entrypoint: 'python'
       args: ['-m', 'pip', 'install', '--upgrade', 'pip']
     - name: python
@@ -19,7 +19,7 @@ steps:
           pwd && ls -la
 
     # Run unit tests
-    - name: 'python'
+    - name: 'unit tests'
       entrypoint: 'python'
       args: ["-m", "pytest", "-f", "python/test-app.py", "--junitxml=${SHORT_SHA}_test_log.xml"]
 
