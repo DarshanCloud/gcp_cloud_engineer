@@ -20,7 +20,7 @@ steps:
     # Docker Build
     - name: 'gcr.io/cloud-builders/docker'
       args: ['build', '-t',
-            'us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/pyimage:${SHORT_SHA}', '-f', 'python\Dockerfile', '.']
+            'us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/pyimage:${SHORT_SHA}', '-f', 'python/Dockerfile', '.']
 
     # Docker push to Google Artifact Registry
     - name: 'gcr.io/cloud-builders/docker'
