@@ -11,14 +11,6 @@ steps:
       entrypoint: python
       args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
 
-    - id: Check Path
-      name: 'python'
-      entrypoint: sh
-      args:
-        - -c
-        - |
-          pwd && ls -la
-
     # Run unit tests
     # - name: 'python'
     #   entrypoint: 'python'
