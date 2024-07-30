@@ -19,8 +19,8 @@ steps:
           pwd && ls -la
 
     # Run unit tests
-    - name: python
-      entrypoint: python
+    - name: 'python'
+      entrypoint: 'python'
       args: ["-m", "pytest", "-f", "python/test-app.py", "--junitxml=${SHORT_SHA}_test_log.xml"]
 
     # Docker Build
