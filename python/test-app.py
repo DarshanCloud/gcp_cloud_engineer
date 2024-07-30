@@ -1,13 +1,13 @@
 import os
 import pytest
 
-import main
+import app
 
 
 @pytest.fixture
 def client():
-    main.app.testing = True
-    return main.app.test_client()
+    app.app.testing = True
+    return app.app.test_client()
 
 
 def test_handler_no_env_variable(client):
