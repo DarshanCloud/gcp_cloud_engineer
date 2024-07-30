@@ -1,0 +1,51 @@
+substitutions:
+    _ARTIFACT_REGISTRY_REPO: 'testandbuild'
+    _DOCKER_CLEANUP: "no"
+
+steps:
+    # Install dependencies
+    - name: 'python'
+      entrypoint: 'python'
+      args: ['-m', 'pip', 'install', '--upgrade', 'pip']
+    - name: python
+      entrypoint: python
+      args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
+
+    # Run unit tests
+    # - name: 'python'
+    #   entrypoint: 'python'
+    #   args: ["-m", "pytest", "-s", "python/test-app.py", "--junitxml=${SHORT_SHA}_test_log.xml"]
+
+
+    # Save test logs to Google Cloud Storage - use when string logs to gcs
+      # artifacts:
+      #   objects:
+      #     location: gs://${_BUCKET_NAME}/
+      #     paths:
+      #       - ${SHORT_SHA}_test_log.xml
+
+    # Docker Build
+    - name: 'gcr.io/cloud-builders/docker'
+      args: ['build', '-t',
+            'us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/pyimage:${SHORT_SHA}', '-f', 'python/Dockerfile', '.']
+
+    # Docker push to Google Artifact Registry
+    - name: 'gcr.io/cloud-builders/docker'
+      args: ['push',  'us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/pyimage:${SHORT_SHA}']
+
+    # Cleanup Google Artifact Registry
+    - id: cleanup
+      name: gcr.io/google.com/cloudsdktool/cloud-sdk
+      entrypoint: /bin/bash
+      args:
+        - -c
+        - |
+          if [[ "${_DOCKER_CLEANUP}" == "yes" ]]
+          then
+          gcloud artifacts docker images delete us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/pyimage:${SHORT_SHA}
+          fi
+
+timeout: 10800s
+options:
+  logging: CLOUD_LOGGING_ONLY
+  substitution_option: ALLOW_LOOSE
