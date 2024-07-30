@@ -3,7 +3,7 @@ substitutions:
 
 steps:
     # Install dependencies
-    - name: 'python'
+    - name: 'Python'
       entrypoint: 'python'
       args: ['-m', 'pip', 'install', '--upgrade', 'pip']
     - name: python
@@ -19,10 +19,10 @@ steps:
           pwd && ls -la
 
     # Run unit tests
-    - name: python
+    - name: Unit tests
       entrypoint: python
-      args: ["-m", "pytest", "--junitxml=${SHORT_SHA}_test_log.xml"]
-      
+      args: ["-m", "pytest", "-f", "python/test-app.py" "--junitxml=${SHORT_SHA}_test_log.xml"]
+
     # Docker Build
     - name: 'gcr.io/cloud-builders/docker'
       args: ['build', '-t',
