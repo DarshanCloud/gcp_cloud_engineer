@@ -1,5 +1,4 @@
 substitutions:
-    _DOCKER_ENV_PATH: "python"
     _ARTIFACT_REGISTRY_REPO: 'testandbuild'
 
 steps:
@@ -18,11 +17,10 @@ steps:
         - -c
         - |
           pwd && ls -la
-          cd ${_DOCKER_ENV_PATH}/
     # Docker Build
     - name: 'gcr.io/cloud-builders/docker'
       args: ['build', '-t',
-            'us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/pyimage:${SHORT_SHA}', '.']
+            'us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/pyimage:${SHORT_SHA}', '-f', 'python\Dockerfile', '.']
 
     # Docker push to Google Artifact Registry
     - name: 'gcr.io/cloud-builders/docker'
